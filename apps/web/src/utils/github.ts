@@ -1,6 +1,6 @@
 function getBaseApiUrl(): string {
   let baseApiUrl = new URL(
-    process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000/api",
+    process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001/api",
   ).href;
   baseApiUrl = baseApiUrl.endsWith("/") ? baseApiUrl : `${baseApiUrl}/`;
   return baseApiUrl;
@@ -189,7 +189,7 @@ export async function searchBranch(
 
     return response.json();
   } catch (error) {
-    console.error(`Error searching for branch ${branchName}:`, error);
+    
     return null;
   }
 }
@@ -265,10 +265,6 @@ export async function getPullRequest(inputs: {
     }
     return data?.[0];
   } catch (e) {
-    console.error("Failed to get pull request", {
-      inputs,
-      error: e,
-    });
     return null;
   }
 }

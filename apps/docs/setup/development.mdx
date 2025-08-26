@@ -62,8 +62,8 @@ Before starting, ensure you have the following installed:
 
     ```bash Environment Variables [expandable]
     # API URLs for development
-    NEXT_PUBLIC_API_URL="http://localhost:3000/api"
-    LANGGRAPH_API_URL="http://localhost:2024"
+    NEXT_PUBLIC_API_URL="http://localhost:3001/api"
+    LANGGRAPH_API_URL="http://localhost:2025"
 
     # Encryption key for secrets (generate with: openssl rand -hex 32)
     SECRETS_ENCRYPTION_KEY=""
@@ -71,7 +71,7 @@ Before starting, ensure you have the following installed:
     # GitHub App OAuth settings (will be filled after creating GitHub App)
     NEXT_PUBLIC_GITHUB_APP_CLIENT_ID=""
     GITHUB_APP_CLIENT_SECRET=""
-    GITHUB_APP_REDIRECT_URI="http://localhost:3000/api/auth/github/callback"
+    GITHUB_APP_REDIRECT_URI="http://localhost:3001/api/auth/github/callback"
 
     # GitHub App details (will be filled after creating GitHub App)
     GITHUB_APP_NAME="open-swe-dev" # this must match the name of your GitHub app, excluding spaces
@@ -119,8 +119,8 @@ Before starting, ensure you have the following installed:
     GITHUB_WEBHOOK_SECRET=""  # Will be generated in next step
 
     # Server configuration
-    PORT="2024"
-    OPEN_SWE_APP_URL="http://localhost:3000"
+    PORT="2025"
+    OPEN_SWE_APP_URL="http://localhost:3001"
     SECRETS_ENCRYPTION_KEY=""  # Must match web app value
 
     # CI/CD. See the /labs/swe/setup/ci for more information
@@ -152,7 +152,7 @@ Before starting, ensure you have the following installed:
        - **GitHub App name**: Your preferred name
        - **Description**: Development instance of Open SWE coding agent
        - **Homepage URL**: Your repository URL
-       - **Callback URL**: `http://localhost:3000/api/auth/github/callback`
+       - **Callback URL**: `http://localhost:3001/api/auth/github/callback`
 
     ### Configure OAuth Settings
 
@@ -167,7 +167,7 @@ Before starting, ensure you have the following installed:
        ```bash
        # Install ngrok if you haven't already
        # Then expose your local LangGraph server
-       ngrok http 2024
+       ngrok http 2025
        ```
        Use the ngrok URL + `/webhook/github` (e.g., `https://abc123.ngrok.io/webhook/github`)
 
@@ -268,14 +268,14 @@ Before starting, ensure you have the following installed:
     # apps/open-swe
     yarn dev
     ```
-    This starts the LangGraph server at `http://localhost:2024`
+    This starts the LangGraph server at `http://localhost:2025`
 
     **Terminal 2 - Start the Web Application:**
     ```bash
     # apps/web
     yarn dev
     ```
-    This starts the Next.js web app at `http://localhost:3000`
+    This starts the Next.js web app at `http://localhost:3001`
 
     <Note>
     Both servers need to be running simultaneously for full functionality. The web app communicates with the LangGraph agent through API calls.
@@ -288,7 +288,7 @@ Before starting, ensure you have the following installed:
 
 Once both servers are running:
 
-1. **Visit the web app**: Navigate to `http://localhost:3000`
+1. **Visit the web app**: Navigate to `http://localhost:3001`
 2. **Test GitHub authentication**: Try logging in with your GitHub account
 
 <Tip>

@@ -97,7 +97,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     const { managerThreadId, plannerThreadId, programmerThreadId } = body;
 
     const langGraphClient = new Client({
-      apiUrl: process.env.LANGGRAPH_API_URL ?? "http://localhost:2024",
+      apiUrl: process.env.LANGGRAPH_API_URL ?? "http://localhost:2025",
       defaultHeaders: await getRequestHeaders(request),
     });
 
@@ -160,7 +160,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       programmerSession: newProgrammerSession,
     });
   } catch (error) {
-    console.error("Failed to restart run", error);
+    
     return NextResponse.json(
       { error: "Failed to restart run" },
       { status: 500 },

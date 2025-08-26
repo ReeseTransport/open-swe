@@ -5,6 +5,7 @@ import {
   GITHUB_INSTALLATION_TOKEN_COOKIE,
   GITHUB_INSTALLATION_NAME,
   GITHUB_INSTALLATION_ID,
+  LOCAL_MODE_HEADER,
 } from "@open-swe/shared/constants";
 import {
   getGitHubInstallationTokenOrThrow,
@@ -18,7 +19,7 @@ import { encryptSecret } from "@open-swe/shared/crypto";
 
 export const { GET, POST, PUT, PATCH, DELETE, OPTIONS, runtime } =
   initApiPassthrough({
-    apiUrl: process.env.LANGGRAPH_API_URL ?? "http://localhost:2024",
+    apiUrl: process.env.LANGGRAPH_API_URL ?? "http://localhost:2025",
     runtime: "edge", // default
     disableWarningLog: true,
     bodyParameters: (req, body) => {
@@ -55,25 +56,46 @@ export const { GET, POST, PUT, PATCH, DELETE, OPTIONS, runtime } =
           "SECRETS_ENCRYPTION_KEY environment variable is required",
         );
       }
+
+      if (process.env.NODE_ENV !== "production") {
+        const extraHeaders: Record<string, string> = {
+          [LOCAL_MODE_HEADER]: "true",
+        };
+        if (process.env.OPEN_SWE_LOCAL_MODE === "true") {
+          extraHeaders["OPEN_SWE_LOCAL_MODE"] = "true";
+        }
+        return extraHeaders;
+      }
+
       const installationIdCookie = req.cookies.get(
         GITHUB_INSTALLATION_ID_COOKIE,
       )?.value;
 
       if (!installationIdCookie) {
-        throw new Error(
-          "No GitHub installation ID found. GitHub App must be installed first.",
-        );
+        return {};
       }
-      const [installationToken, installationName] = await Promise.all([
-        getGitHubInstallationTokenOrThrow(installationIdCookie, encryptionKey),
-        getInstallationNameFromReq(req.clone(), installationIdCookie),
-      ]);
 
-      return {
-        [GITHUB_TOKEN_COOKIE]: getGitHubAccessTokenOrThrow(req, encryptionKey),
-        [GITHUB_INSTALLATION_TOKEN_COOKIE]: installationToken,
-        [GITHUB_INSTALLATION_NAME]: installationName,
-        [GITHUB_INSTALLATION_ID]: installationIdCookie,
-      };
+      if (
+        !process.env.GITHUB_APP_ID ||
+        !process.env.GITHUB_APP_PRIVATE_KEY
+      ) {
+        return {};
+      }
+
+      try {
+        const [installationToken, installationName] = await Promise.all([
+          getGitHubInstallationTokenOrThrow(installationIdCookie, encryptionKey),
+          getInstallationNameFromReq(req.clone(), installationIdCookie),
+        ]);
+
+        return {
+          [GITHUB_TOKEN_COOKIE]: getGitHubAccessTokenOrThrow(req, encryptionKey),
+          [GITHUB_INSTALLATION_TOKEN_COOKIE]: installationToken,
+          [GITHUB_INSTALLATION_NAME]: installationName,
+          [GITHUB_INSTALLATION_ID]: installationIdCookie,
+        };
+      } catch {
+        return {};
+      }
     },
   });

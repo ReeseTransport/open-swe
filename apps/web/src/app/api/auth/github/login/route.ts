@@ -1,12 +1,18 @@
-import { GITHUB_AUTH_STATE_COOKIE } from "@open-swe/shared/constants";
+import { GITHUB_AUTH_STATE_COOKIE, LOCAL_MODE_HEADER } from "@open-swe/shared/constants";
 import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(_request: NextRequest) {
+export async function GET(request: NextRequest) {
   try {
     const clientId = process.env.NEXT_PUBLIC_GITHUB_APP_CLIENT_ID;
     const redirectUri = process.env.GITHUB_APP_REDIRECT_URI;
 
     if (!clientId || !redirectUri) {
+      if (request.headers.get(LOCAL_MODE_HEADER) === "true") {
+        return NextResponse.json(
+          { auth: "disabled" },
+          { status: 401 },
+        );
+      }
       return NextResponse.json(
         { error: "GitHub App configuration missing" },
         { status: 500 },
@@ -36,7 +42,7 @@ export async function GET(_request: NextRequest) {
 
     return response;
   } catch (error) {
-    console.error("GitHub App login error:", error);
+    
     return NextResponse.json(
       { error: "Failed to initiate GitHub App authentication flow" },
       { status: 500 },

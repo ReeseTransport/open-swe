@@ -10,6 +10,7 @@ customModes:
       routine work produce PLAN.md; for high-ambiguity or high-impact changes also produce implementation_plan.md.
     customInstructions: |
       Process:
+      - User-facing output discipline: Keep replies ≤3 short lines. Never print the contents of PLAN.md/implementation_plan.md or any file in chat; write files and link to them with clickable refs. If a snippet is unavoidable, write it to '.kilocode/snippets/<slug>-*.md' and link.
       - Discover using real tools only: <list_files> (map structure) → <list_code_definition_names> (entrypoints) → <search_files> (regex over hotspots) → <read_file> (tight ranges).
       - Summarize findings succinctly; avoid dumping large file contents.
       - Write PLAN.md at repo root; add .kilocode/plan/NN-*.md for deep details.
@@ -88,6 +89,7 @@ customModes:
       unless explicitly instructed.
     customInstructions: |
       Execution:
+      - User-facing output discipline: Keep replies ≤3 short lines. Never echo diffs or code; make changes via tools and report only changed paths, counts, and test/lint summaries with clickable refs.
       - Follow PLAN.md (and implementation_plan.md when present). Work in a feature branch named task/<slug>.
       - After each meaningful change: run linters/typecheck and tests; fix failures; keep commits scoped.
       - Use COMMENTS.md for short rationale and external references (links only; keep ≤100 lines).
@@ -168,6 +170,7 @@ customModes:
       commands if needed to inspect artifacts, but do not change source files. Write review notes and either approve or request changes.
     customInstructions: |
       Review steps:
+      - User-facing output discipline: Keep replies ≤3 short lines. Do not paste diffs; write detailed findings to REVIEW.md and link. For summary-only reviews, return a one-line status + clickable refs.
       - Fetch and summarize local changes: use <execute_command> (e.g., git status --porcelain; git diff --name-only) to capture scope, then describe affected components and inferred intent.
       - Analyze diffs and record findings by category only when present; classify severity as High/Medium/Low. Point to exact clickable refs.
       - Verify tests pass; check docs, types, error handling, logging, migrations, observability, and config hygiene.
@@ -252,6 +255,7 @@ customModes:
     description: Get answers and explanations.
     customInstructions: |
       Behavior:
+      - User-facing output discipline: Default to ≤5 lines; expand only on explicit request for details. When saving memories, show counts and paths only; no long content echoes.
       - Analyze provided code or files, conduct research, and explain clearly. Include Mermaid diagrams when helpful.
       - Built‑in knowledge capture capability (no separate trigger needed):
         - Parse user‑provided memory text or mine conversation for 3–7 durable candidates.
@@ -296,6 +300,8 @@ customModes:
       9) Mark status=complete; emit final changelog and append a short retrospective line to 'memories'.
 
       <rules>
+      - Comms discipline:
+        - Keep user-visible replies ≤3 lines; no preambles or previews of large content. Reference artifacts via clickable links only. Require all subtasks to follow the same policy.
       - Scope:
         - Manager never edits source or runs commands; only writes .kilocode/state/<slug>.yaml and orchestrates subtasks.
       - Task state schema keys:
@@ -303,6 +309,8 @@ customModes:
         - branch: 'task/<slug>' | null; reviewRequired: boolean (default true); risks: array of {id, summary, severity, owner}
         - priority: low|normal|high; fastPath: boolean; toolBudget: int; timeBudgetSec: int; autoApproveProfile: strict|balanced|aggressive
         - indexVersion: int; auditLog: path string
+      - Subtask payload directive:
+        - Add the instruction "Do not print file contents to chat; write files and return only paths and summaries." to every subtask payload.
       - Budgets & timeboxes:
         - Track tool uses; if toolBudget reaches 0, return best partial and options.
         - Respect timeBudgetSec; if exceeded, report concise status + next steps.

@@ -2,7 +2,7 @@ import { Client, StreamMode } from "@langchain/langgraph-sdk";
 import { LOCAL_MODE_HEADER } from "@open-swe/shared/constants";
 import { formatDisplayLog } from "./logger.js";
 
-const LANGGRAPH_URL = process.env.LANGGRAPH_URL || "http://localhost:2024";
+const LANGGRAPH_URL = process.env.LANGGRAPH_URL || "http://localhost:2025";
 
 interface InterruptData {
   command: string;
