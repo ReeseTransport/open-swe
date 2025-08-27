@@ -4,6 +4,8 @@ import { Toaster } from "@/components/ui/sonner";
 import React from "react";
 import AuthStatus from "@/components/github/auth-status";
 
+export const runtime = "nodejs";
+
 export default function Page(): React.ReactNode {
   return (
     <React.Suspense fallback={<div>Loading (layout)...</div>}>

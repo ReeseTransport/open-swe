@@ -6,8 +6,13 @@ export async function GET(request: NextRequest) {
     const clientId = process.env.NEXT_PUBLIC_GITHUB_APP_CLIENT_ID;
     const redirectUri = process.env.GITHUB_APP_REDIRECT_URI;
 
+    const isLocal =
+      process.env.OPEN_SWE_LOCAL_MODE === "true" ||
+      process.env.NODE_ENV !== "production" ||
+      request.headers.get(LOCAL_MODE_HEADER) === "true";
+
     if (!clientId || !redirectUri) {
-      if (request.headers.get(LOCAL_MODE_HEADER) === "true") {
+      if (isLocal) {
         return NextResponse.json(
           { auth: "disabled" },
           { status: 401 },

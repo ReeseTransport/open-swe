@@ -11,6 +11,8 @@ const inter = Inter({
   display: "swap",
 });
 
+export const runtime = "nodejs";
+
 export const metadata: Metadata = {
   title: "Open SWE",
   description: "Open SWE UX by LangChain",

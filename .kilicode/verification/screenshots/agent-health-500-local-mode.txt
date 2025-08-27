@@ -1,0 +1,10 @@
+HTTP/1.1 500 Internal Server Error
+access-control-allow-origin: *
+access-control-expose-headers: content-location,x-pagination-total
+content-type: application/json
+content-length: 213
+Date: Tue, 26 Aug 2025 23:27:00 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"ok":false,"missing":["GOOGLE_API_KEY (or Vertex trio)","GOOGLE_VERTEX_PROJECT (or GOOGLE_API_KEY)","GOOGLE_VERTEX_LOCATION (or GOOGLE_API_KEY)","GOOGLE_APPLICATION_CREDENTIALS (or GOOGLE_API_KEY)"],"invalid":[]}
