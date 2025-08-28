@@ -14,13 +14,10 @@ import {
 } from "./utils";
 import { encryptSecret } from "@open-swe/shared/crypto";
 
-// This file acts as a proxy for requests to your LangGraph server.
-// Read the [Going to Production](https://github.com/langchain-ai/agent-chat-ui?tab=readme-ov-file#going-to-production) section for more information.
-
 export const { GET, POST, PUT, PATCH, DELETE, OPTIONS, runtime } =
   initApiPassthrough({
     apiUrl: process.env.LANGGRAPH_API_URL ?? "http://localhost:2025",
-    runtime: "edge", // default
+    runtime: "edge",
     disableWarningLog: true,
     bodyParameters: (req, body) => {
       if (body.config?.configurable && "apiKeys" in body.config.configurable) {
@@ -34,7 +31,6 @@ export const { GET, POST, PUT, PATCH, DELETE, OPTIONS, runtime } =
         const apiKeys = body.config.configurable.apiKeys;
         const encryptedApiKeys: Record<string, unknown> = {};
 
-        // Encrypt each field in the apiKeys object
         for (const [key, value] of Object.entries(apiKeys)) {
           if (typeof value === "string" && value.trim() !== "") {
             encryptedApiKeys[key] = encryptSecret(value, encryptionKey);
@@ -43,7 +39,6 @@ export const { GET, POST, PUT, PATCH, DELETE, OPTIONS, runtime } =
           }
         }
 
-        // Update the body with encrypted apiKeys
         body.config.configurable.apiKeys = encryptedApiKeys;
         return body;
       }
@@ -57,14 +52,36 @@ export const { GET, POST, PUT, PATCH, DELETE, OPTIONS, runtime } =
         );
       }
 
-      if (process.env.NODE_ENV !== "production") {
-        const extraHeaders: Record<string, string> = {
-          [LOCAL_MODE_HEADER]: "true",
-        };
-        if (process.env.OPEN_SWE_LOCAL_MODE === "true") {
-          extraHeaders["OPEN_SWE_LOCAL_MODE"] = "true";
+      const forwarded: Record<string, string> = {};
+
+      // Filter out sensitive headers
+      const sensitiveHeaders = new Set([
+        "authorization",
+        "cookie",
+        "set-cookie",
+        "x-api-key",
+        "x-auth-token",
+        "proxy-authorization",
+        "x-forwarded-for",
+        "x-real-ip",
+      ]);
+
+      // Forward non-sensitive headers
+      req.headers.forEach((value, key) => {
+        if (!sensitiveHeaders.has(key.toLowerCase())) {
+          forwarded[key] = value;
         }
-        return extraHeaders;
+      });
+
+      if (
+        process.env.OPEN_SWE_LOCAL_MODE === "true" &&
+        req.headers.get(LOCAL_MODE_HEADER) !== "true"
+      ) {
+        forwarded[LOCAL_MODE_HEADER] = "true";
+      }
+
+      if (process.env.NODE_ENV !== "production") {
+        return forwarded;
       }
 
       const installationIdCookie = req.cookies.get(
@@ -72,14 +89,14 @@ export const { GET, POST, PUT, PATCH, DELETE, OPTIONS, runtime } =
       )?.value;
 
       if (!installationIdCookie) {
-        return {};
+        return forwarded;
       }
 
       if (
         !process.env.GITHUB_APP_ID ||
         !process.env.GITHUB_APP_PRIVATE_KEY
       ) {
-        return {};
+        return forwarded;
       }
 
       try {
@@ -89,13 +106,14 @@ export const { GET, POST, PUT, PATCH, DELETE, OPTIONS, runtime } =
         ]);
 
         return {
+          ...forwarded,
           [GITHUB_TOKEN_COOKIE]: getGitHubAccessTokenOrThrow(req, encryptionKey),
           [GITHUB_INSTALLATION_TOKEN_COOKIE]: installationToken,
           [GITHUB_INSTALLATION_NAME]: installationName,
           [GITHUB_INSTALLATION_ID]: installationIdCookie,
         };
       } catch {
-        return {};
+        return forwarded;
       }
     },
   });

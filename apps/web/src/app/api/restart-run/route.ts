@@ -97,7 +97,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     const { managerThreadId, plannerThreadId, programmerThreadId } = body;
 
     const langGraphClient = new Client({
-      apiUrl: process.env.LANGGRAPH_API_URL ?? "http://localhost:2025",
+      apiUrl: process.env.OPEN_SWE_API_URL ?? "http://localhost:2025",
       defaultHeaders: await getRequestHeaders(request),
     });
 

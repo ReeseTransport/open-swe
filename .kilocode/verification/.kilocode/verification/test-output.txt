@@ -1,0 +1,51 @@
+turbo 2.5.5
+
+ΓÇó Packages in scope: @open-swe/agent, @open-swe/cli, @open-swe/docs, @open-swe/shared, @open-swe/web
+ΓÇó Running test in 5 packages
+ΓÇó Remote caching disabled
+@open-swe/shared:test: cache hit, replaying logs 1ff29f49b9b0b6a2
+@open-swe/shared:test: (node:27380) ExperimentalWarning: VM Modules is an experimental feature and might change at any time
+@open-swe/shared:test: (Use `node --trace-warnings ...` to show where the warning was created)
+@open-swe/shared:test: PASS src/__tests__/caching.test.ts
+@open-swe/shared:test:   tokenDataReducer
+@open-swe/shared:test:     ΓêÜ should merge objects with the same model string (5 ms)
+@open-swe/shared:test:     ΓêÜ should return update array when state is undefined
+@open-swe/shared:test:     ΓêÜ should handle empty update array
+@open-swe/shared:test:     ΓêÜ should handle multiple updates for the same model (1 ms)
+@open-swe/shared:test: 
+@open-swe/shared:test: Test Suites: 1 passed, 1 total
+@open-swe/shared:test: Tests:       4 passed, 4 total
+@open-swe/shared:test: Snapshots:   0 total
+@open-swe/shared:test: Time:        3.948 s, estimated 5 s
+@open-swe/shared:test: Ran all test suites.
+@open-swe/cli:test: cache hit, replaying logs d773618443be486b
+@open-swe/cli:test: No tests yet
+@open-swe/agent:test: cache hit, replaying logs 9646e41d368a8949
+@open-swe/agent:test: (node:28548) ExperimentalWarning: VM Modules is an experimental feature and might change at any time
+@open-swe/agent:test: (Use `node --trace-warnings ...` to show where the warning was created)
+@open-swe/agent:test: PASS src/__tests__/diagnose-error.test.ts
+@open-swe/agent:test: (node:27520) ExperimentalWarning: VM Modules is an experimental feature and might change at any time
+@open-swe/agent:test: (Use `node --trace-warnings ...` to show where the warning was created)
+@open-swe/agent:test: PASS src/__tests__/take-action.test.ts
+@open-swe/agent:test: (node:22408) ExperimentalWarning: VM Modules is an experimental feature and might change at any time
+@open-swe/agent:test: (Use `node --trace-warnings ...` to show where the warning was created)
+@open-swe/agent:test: PASS src/__tests__/tokens.test.ts
+@open-swe/agent:test: PASS src/__tests__/retry.test.ts
+@open-swe/agent:test: (node:27932) ExperimentalWarning: VM Modules is an experimental feature and might change at any time
+@open-swe/agent:test: (Use `node --trace-warnings ...` to show where the warning was created)
+@open-swe/agent:test: PASS src/__tests__/extract-linked-issues.test.ts
+@open-swe/agent:test: (node:25772) ExperimentalWarning: VM Modules is an experimental feature and might change at any time
+@open-swe/agent:test: (Use `node --trace-warnings ...` to show where the warning was created)
+@open-swe/agent:test: PASS src/__tests__/git-file-validation.test.ts
+@open-swe/agent:test: 
+@open-swe/agent:test: Test Suites: 6 passed, 6 total
+@open-swe/agent:test: Tests:       86 passed, 86 total
+@open-swe/agent:test: Snapshots:   0 total
+@open-swe/agent:test: Time:        4.758 s
+@open-swe/agent:test: Ran all test suites.
+
+ Tasks:    3 successful, 3 total
+Cached:    3 cached, 3 total
+  Time:    2.489s >>> FULL TURBO
+
+ExitCode: 0

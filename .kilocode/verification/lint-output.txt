@@ -1,0 +1,163 @@
+turbo 2.5.5
+
+ΓÇó Packages in scope: @open-swe/agent, @open-swe/cli, @open-swe/docs, @open-swe/shared, @open-swe/web
+ΓÇó Running lint in 5 packages
+ΓÇó Remote caching disabled
+@open-swe/shared:lint: cache hit, replaying logs 1e32b3975ae0319d
+@open-swe/web:lint: cache hit, replaying logs 6ed0307379e84fc0
+@open-swe/cli:lint: cache hit, replaying logs 256095893d7fce24
+@open-swe/agent:lint: cache hit, replaying logs e5fd117c1bb700f4
+@open-swe/web:lint: 
+@open-swe/web:lint:  ΓÜá The Next.js plugin was not detected in your ESLint configuration. See https://nextjs.org/docs/app/api-reference/config/eslint#migrating-existing-config
+@open-swe/web:lint: 
+@open-swe/web:lint: ./src/app/(v2)/chat/layout.tsx
+@open-swe/web:lint: 5:14  Warning: Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components.  react-refresh/only-export-components
+@open-swe/web:lint: 
+@open-swe/web:lint: ./src/app/(v2)/chat/threads/layout.tsx
+@open-swe/web:lint: 5:14  Warning: Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components.  react-refresh/only-export-components
+@open-swe/web:lint: 
+@open-swe/web:lint: ./src/app/(v2)/chat/threads/page.tsx
+@open-swe/web:lint: 13:10  Warning: 'InstallationSelector' is defined but never used. Allowed unused vars must match /^_/u.  @typescript-eslint/no-unused-vars
+@open-swe/web:lint: 
+@open-swe/web:lint: ./src/app/(v2)/chat/[thread_id]/layout.tsx
+@open-swe/web:lint: 5:14  Warning: Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components.  react-refresh/only-export-components
+@open-swe/web:lint: 
+@open-swe/web:lint: ./src/app/(v2)/chat/[thread_id]/page.tsx
+@open-swe/web:lint: 94:6  Warning: React Hook useEffect has missing dependencies: 'initialFetchedThread' and 'stream.client'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+@open-swe/web:lint: 
+@open-swe/web:lint: ./src/app/api/auth/github/login/route.ts
+@open-swe/web:lint: 1:36  Warning: 'LOCAL_MODE_HEADER' is defined but never used. Allowed unused vars must match /^_/u.  @typescript-eslint/no-unused-vars
+@open-swe/web:lint: 43:12  Warning: 'error' is defined but never used.  @typescript-eslint/no-unused-vars
+@open-swe/web:lint: 
+@open-swe/web:lint: ./src/app/api/auth/user/route.ts
+@open-swe/web:lint: 28:12  Warning: 'error' is defined but never used.  @typescript-eslint/no-unused-vars
+@open-swe/web:lint: 
+@open-swe/web:lint: ./src/app/api/health/route.ts
+@open-swe/web:lint: 17:12  Warning: 'error' is defined but never used.  @typescript-eslint/no-unused-vars
+@open-swe/web:lint: 
+@open-swe/web:lint: ./src/app/api/restart-run/route.ts
+@open-swe/web:lint: 162:12  Warning: 'error' is defined but never used.  @typescript-eslint/no-unused-vars
+@open-swe/web:lint: 
+@open-swe/web:lint: ./src/app/layout.tsx
+@open-swe/web:lint: 16:14  Warning: Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components.  react-refresh/only-export-components
+@open-swe/web:lint: 
+@open-swe/web:lint: ./src/components/configuration/config-field.tsx
+@open-swe/web:lint: 22:10  Warning: 'useQueryState' is defined but never used. Allowed unused vars must match /^_/u.  @typescript-eslint/no-unused-vars
+@open-swe/web:lint: 
+@open-swe/web:lint: ./src/components/gen-ui/action-step.tsx
+@open-swe/web:lint: 10:3  Warning: 'MessageSquare' is defined but never used. Allowed unused vars must match /^_/u.  @typescript-eslint/no-unused-vars
+@open-swe/web:lint: 
+@open-swe/web:lint: ./src/components/gen-ui/request-human-help.tsx
+@open-swe/web:lint: 7:3  Warning: 'CheckCircle' is defined but never used. Allowed unused vars must match /^_/u.  @typescript-eslint/no-unused-vars
+@open-swe/web:lint: 
+@open-swe/web:lint: ./src/components/gen-ui/write-technical-notes.tsx
+@open-swe/web:lint: 11:10  Warning: 'cn' is defined but never used. Allowed unused vars must match /^_/u.  @typescript-eslint/no-unused-vars
+@open-swe/web:lint: 
+@open-swe/web:lint: ./src/components/github/auth-status.tsx
+@open-swe/web:lint: 51:6  Warning: React Hook useEffect has a missing dependency: 'router'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+@open-swe/web:lint: 
+@open-swe/web:lint: ./src/components/github/installation-selector.tsx
+@open-swe/web:lint: 13:15  Warning: 'Installation' is defined but never used. Allowed unused vars must match /^_/u.  @typescript-eslint/no-unused-vars
+@open-swe/web:lint: 40:9  Warning: 'getAccountIcon' is assigned a value but never used. Allowed unused vars must match /^_/u.  @typescript-eslint/no-unused-vars
+@open-swe/web:lint: 
+@open-swe/web:lint: ./src/components/github/repo-branch-selectors/branch-selector.tsx
+@open-swe/web:lint: 97:6  Warning: React Hook useEffect has missing dependencies: 'branches', 'searchForBranch', and 'selectedRepository'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+@open-swe/web:lint: 
+@open-swe/web:lint: ./src/components/tasks/index.tsx
+@open-swe/web:lint: 60:9  Warning: 'isLatestTask' is assigned a value but never used. Allowed unused vars must match /^_/u.  @typescript-eslint/no-unused-vars
+@open-swe/web:lint: 
+@open-swe/web:lint: ./src/components/tasks/progress-bar.tsx
+@open-swe/web:lint: 61:5  Warning: 'currentTask' is assigned a value but never used. Allowed unused vars must match /^_/u.  @typescript-eslint/no-unused-vars
+@open-swe/web:lint: 72:12  Warning: 'error' is defined but never used.  @typescript-eslint/no-unused-vars
+@open-swe/web:lint: 
+@open-swe/cli:lint: 
+@open-swe/cli:lint: C:\Users\joshu\Desktop\PROJECTS\DEV\open-swe\apps\cli\src\index.tsx
+@open-swe/web:lint: ./src/components/theme-provider.tsx
+@open-swe/web:lint: 78:14  Warning: Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components.  react-refresh/only-export-components
+@open-swe/cli:lint:   45:7  warning  Fast refresh only works when a file has exports. Move your component(s) to a separate file  react-refresh/only-export-components
+@open-swe/cli:lint:   78:7  warning  Fast refresh only works when a file has exports. Move your component(s) to a separate file  react-refresh/only-export-components
+@open-swe/web:lint: 
+@open-swe/web:lint: ./src/components/thread/messages/ai.tsx
+@open-swe/cli:lint: 
+@open-swe/cli:lint: Γ£û 2 problems (0 errors, 2 warnings)
+@open-swe/web:lint: 74:6  Warning: 'ReviewStartedToolArgs' is defined but never used. Allowed unused vars must match /^_/u.  @typescript-eslint/no-unused-vars
+@open-swe/web:lint: 111:6  Warning: 'ConversationHistorySummaryToolArgs' is defined but never used. Allowed unused vars must match /^_/u.  @typescript-eslint/no-unused-vars
+@open-swe/cli:lint: 
+@open-swe/web:lint: 199:17  Warning: Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components.  react-refresh/only-export-components
+@open-swe/web:lint: 
+@open-swe/web:lint: ./src/components/ui/badge.tsx
+@open-swe/web:lint: 46:17  Warning: Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components.  react-refresh/only-export-components
+@open-swe/web:lint: 
+@open-swe/web:lint: ./src/components/ui/button.tsx
+@open-swe/web:lint: 61:18  Warning: Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components.  react-refresh/only-export-components
+@open-swe/web:lint: 
+@open-swe/web:lint: ./src/components/v2/actions-renderer.tsx
+@open-swe/web:lint: 182:6  Warning: React Hook useEffect has a missing dependency: 'setCustomNodeEvents'. Either include it or remove the dependency array. If 'setCustomNodeEvents' changes too often, find the parent component that defines it and wrap that definition in useCallback.  react-hooks/exhaustive-deps
+@open-swe/web:lint: 192:6  Warning: React Hook useEffect has a missing dependency: 'filteredMessages.length'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+@open-swe/web:lint: 
+@open-swe/web:lint: ./src/components/v2/diagnose-error-action.tsx
+@open-swe/web:lint: 9:3  Warning: 'MessageSquare' is defined but never used. Allowed unused vars must match /^_/u.  @typescript-eslint/no-unused-vars
+@open-swe/web:lint: 
+@open-swe/web:lint: ./src/components/v2/drafts-section.tsx
+@open-swe/web:lint: 6:28  Warning: 'Archive' is defined but never used. Allowed unused vars must match /^_/u.  @typescript-eslint/no-unused-vars
+@open-swe/web:lint: 
+@open-swe/web:lint: ./src/components/v2/terminal-input.tsx
+@open-swe/web:lint: 245:6  Warning: React Hook useEffect has missing dependencies: 'message', 'setMessage', and 'setQuickActionPrompt'. Either include them or remove the dependency array. If 'setQuickActionPrompt' changes too often, find the parent component that defines it and wrap that definition in useCallback.  react-hooks/exhaustive-deps
+@open-swe/web:lint: 
+@open-swe/web:lint: ./src/components/v2/thread-card.tsx
+@open-swe/web:lint: 69:14  Warning: 'error' is defined but never used.  @typescript-eslint/no-unused-vars
+@open-swe/web:lint: 
+@open-swe/web:lint: ./src/components/v2/thread-view.tsx
+@open-swe/web:lint: 7:32  Warning: 'Terminal' is defined but never used. Allowed unused vars must match /^_/u.  @typescript-eslint/no-unused-vars
+@open-swe/web:lint: 124:6  Warning: React Hook useEffect has a missing dependency: 'stream.client.threads'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+@open-swe/web:lint: 211:6  Warning: React Hook useEffect has a missing dependency: 'plannerStream'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+@open-swe/web:lint: 237:6  Warning: React Hook useEffect has a missing dependency: 'programmerStream'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+@open-swe/web:lint: 251:6  Warning: React Hook useEffect has missing dependencies: 'plannerSession' and 'selectedTab'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+@open-swe/web:lint: 295:6  Warning: React Hook useEffect has missing dependencies: 'programmerSession?.runId' and 'programmerSession?.threadId'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+@open-swe/web:lint: 
+@open-swe/web:lint: ./src/features/settings-page/config-manager.tsx
+@open-swe/web:lint: 89:6  Warning: React Hook useEffect has a missing dependency: 'loadConfigurations'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+@open-swe/web:lint: 
+@open-swe/web:lint: ./src/features/settings-page/github-manager.tsx
+@open-swe/web:lint: 34:5  Warning: 'installations' is assigned a value but never used. Allowed unused vars must match /^_/u.  @typescript-eslint/no-unused-vars
+@open-swe/web:lint: 38:5  Warning: 'switchInstallation' is assigned a value but never used. Allowed unused vars must match /^_/u.  @typescript-eslint/no-unused-vars
+@open-swe/web:lint: 
+@open-swe/web:lint: ./src/hooks/useDraftStorage.tsx
+@open-swe/web:lint: 76:25  Warning: React Hook useCallback received a function whose dependencies are unknown. Pass an inline function instead.  react-hooks/exhaustive-deps
+@open-swe/web:lint: 
+@open-swe/web:lint: ./src/hooks/useGitHubApp.ts
+@open-swe/web:lint: 174:6  Warning: React Hook useEffect has missing dependencies: 'branchesLoading', 'fetchBranches', and 'setSelectedBranchParam'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+@open-swe/web:lint: 285:5  Warning: React Hook useCallback has a missing dependency: 'selectedRepository'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+@open-swe/web:lint: 330:5  Warning: React Hook useCallback has a missing dependency: 'selectedRepository'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+@open-swe/web:lint: 358:6  Warning: React Hook useEffect has a missing dependency: 'setSelectedRepository'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+@open-swe/web:lint: 446:6  Warning: React Hook useEffect has an unnecessary dependency: 'hasCheckedLocalStorageRef.current'. Either exclude it or remove the dependency array. Mutable values like 'hasCheckedLocalStorageRef.current' aren't valid dependencies because mutating them doesn't re-render the component.  react-hooks/exhaustive-deps
+@open-swe/web:lint: 
+@open-swe/web:lint: ./src/hooks/useGitHubToken.ts
+@open-swe/web:lint: 45:14  Warning: 'err' is defined but never used.  @typescript-eslint/no-unused-vars
+@open-swe/web:lint: 
+@open-swe/web:lint: ./src/hooks/useThreadsStatus.ts
+@open-swe/web:lint: 59:7  Warning: 'CACHE_TTL' is assigned a value but never used. Allowed unused vars must match /^_/u.  @typescript-eslint/no-unused-vars
+@open-swe/web:lint: 203:6  Warning: React Hook useMemo has an unnecessary dependency: 'threadIdsKey'. Either exclude it or remove the dependency array.  react-hooks/exhaustive-deps
+@open-swe/web:lint: 
+@open-swe/web:lint: ./src/hooks/useThreadsSWR.ts
+@open-swe/web:lint: 103:6  Warning: React Hook useMemo has a missing dependency: 'pagination'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+@open-swe/web:lint: 165:6  Warning: React Hook useMemo has a missing dependency: 'hasMoreState'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+@open-swe/web:lint: 
+@open-swe/web:lint: ./src/providers/GitHubApp.tsx
+@open-swe/web:lint: 21:17  Warning: Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components.  react-refresh/only-export-components
+@open-swe/web:lint: 
+@open-swe/web:lint: ./src/providers/Thread.tsx
+@open-swe/web:lint: 50:34  Warning: 'setRecentlyUpdatedThreads' is assigned a value but never used. Allowed unused vars must match /^_/u.  @typescript-eslint/no-unused-vars
+@open-swe/web:lint: 141:17  Warning: Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components.  react-refresh/only-export-components
+@open-swe/web:lint: 
+@open-swe/web:lint: ./src/utils/github.ts
+@open-swe/web:lint: 191:12  Warning: 'error' is defined but never used.  @typescript-eslint/no-unused-vars
+@open-swe/web:lint: 267:12  Warning: 'e' is defined but never used.  @typescript-eslint/no-unused-vars
+@open-swe/web:lint: 
+@open-swe/web:lint: info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/app/api-reference/config/eslint#disabling-rules
+
+ Tasks:    4 successful, 4 total
+Cached:    4 cached, 4 total
+  Time:    555ms >>> FULL TURBO
+
+ExitCode: 0

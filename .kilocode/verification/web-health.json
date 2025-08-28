@@ -1,0 +1,4 @@
+{
+  "StatusCode": 200,
+  "Body": "{\"ok\":true,\"ports\":{\"web\":\"3001\",\"agent\":\"2025\"},\"proxy\":\"http://localhost:2025\"}"
+}

@@ -16,9 +16,9 @@
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "test": "NODE_OPTIONS=--experimental-vm-modules yarn run jest --config jest.config.js --testPathIgnorePatterns=int.test.ts",
-    "test:int": "node --experimental-vm-modules node_modules/jest/bin/jest.js --config jest.config.js --testPathPattern=int.test.ts",
-    "test:single": "NODE_OPTIONS=--experimental-vm-modules yarn run jest --config jest.config.js --testTimeout 100000",
+    "test": "NODE_OPTIONS=--experimental-vm-modules yarn run jest --config jest.config.js --testPathIgnorePatterns=int.test.ts --watch=false",
+    "test:int": "node --experimental-vm-modules node_modules/jest/bin/jest.js --config jest.config.js --testPathPattern=int.test.ts --watch=false",
+    "test:single": "NODE_OPTIONS=--experimental-vm-modules yarn run jest --config jest.config.js --testTimeout 100000 --watch=false",
     "eval:single": "NODE_OPTIONS=--experimental-vm-modules yarn run vitest --config ls.vitest.config.ts --run",
     "get-trace-urls": "tsx scripts/get-trace-urls.ts",
     "postinstall": "turbo build"

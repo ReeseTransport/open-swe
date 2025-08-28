@@ -1,0 +1,3 @@
+StatusCode: 500
+Body:
+{"ok":false,"missing":["GOOGLE_API_KEY (or Vertex trio)","GOOGLE_VERTEX_PROJECT (or GOOGLE_API_KEY)","GOOGLE_VERTEX_LOCATION (or GOOGLE_API_KEY)","GOOGLE_APPLICATION_CREDENTIALS (or GOOGLE_API_KEY)"],"invalid":[]}
