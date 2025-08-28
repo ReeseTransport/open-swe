@@ -1,6 +1,6 @@
 title: "Setup and verify open-swe locally (ports 2025/3001, local-mode auth)"
 slug: "setup-open-swe-locally"
-status: "implementing"
+status: "complete"
 branch: "task/setup-open-swe-locally"
 reviewRequired: true
 risks:
@@ -17,4 +17,4 @@ risks:
     severity: "low"
     owner: "planner"
 createdAt: "2025-08-27T01:26:41.402Z"
-updatedAt: "2025-08-28T01:16:35.906Z"
+updatedAt: "2025-08-28T15:31:03.776Z"
